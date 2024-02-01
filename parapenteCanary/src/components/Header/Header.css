@@ -1,0 +1,25 @@
+#header-container{
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  border: 1px solid white;
+}
+
+#logo-container{
+  width: 25vw;
+  height: 70%;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header-nav{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}

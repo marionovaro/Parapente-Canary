@@ -7,7 +7,6 @@ const App = () => {
       <LandingPage/>
       <Flight/>
       <BuyButton/>
-      {/* <GridReasons/> */}
       <Carousel/>
     </div>
   )

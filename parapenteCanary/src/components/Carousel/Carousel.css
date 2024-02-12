@@ -1,7 +1,10 @@
 .slider-container{
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 1rem; */
+  max-width: 90%;
+  /* justify-content: center;
+  align-items: center; */
 }
 
 .single-slide{
@@ -9,4 +12,3 @@
   width: 10vw;
   height: 50vw;
 }
-

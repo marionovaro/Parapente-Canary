@@ -1,0 +1,18 @@
+.carousel-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #FE981E;
+  border-radius: 20px;
+  gap: 0.5rem;
+
+  .carousel-card-description{
+    text-align: center;
+  }
+}
+
+.swiper-slide{
+  width: 20%;
+}

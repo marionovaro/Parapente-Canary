@@ -1,11 +1,14 @@
 import "./App.css"
-import { Flight, LandingPage } from "./components"
+import { BuyButton, Carousel, Flight, GridReasons, LandingPage } from "./components"
 
 const App = () => {
   return (
     <div id="app-container">
       <LandingPage/>
       <Flight/>
+      <BuyButton/>
+      {/* <GridReasons/> */}
+      <Carousel/>
     </div>
   )
 }

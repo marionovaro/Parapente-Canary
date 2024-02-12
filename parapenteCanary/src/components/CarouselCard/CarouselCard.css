@@ -7,13 +7,9 @@
   border: 1px solid #FE981E;
   border-radius: 20px;
   gap: 0.5rem;
-  width: 20vw;
+  /* width: 25vw; */
 
   .carousel-card-description{
     text-align: center;
   }
-}
-
-.swiper-slide{
-  width: 20%;
 }

@@ -1,5 +1,5 @@
 import "./App.css"
-import { BuyButton, Carousel, CloudSeparator, Flight, LandingPage, Testimonial } from "./components"
+import { BuyButton, Carousel, CloudSeparator, FAQ, Flight, LandingPage, Testimonial } from "./components"
 
 const App = () => {
   return (
@@ -13,6 +13,7 @@ const App = () => {
       </div>
       <CloudSeparator position="end"/>
       <Testimonial/>
+      <FAQ/>
     </div>
   )
 }

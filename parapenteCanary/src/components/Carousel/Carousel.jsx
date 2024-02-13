@@ -1,7 +1,7 @@
 
 import React from "react";
 import Slider from "react-slick";
-import { data } from "./CarouselData";
+import { data } from "../../data/carouseldata";
 import { CarouselCard } from "../CarouselCard/CarouselCard";
 import "./Carousel.css"
 
@@ -16,14 +16,16 @@ export const Carousel = () => {
     // centerPadding: "60px"
   };
   return (
-    <div className="slider-container">
+    <section className="slider-container">
+        <h2 id="slider-section-title">¿Por qué escogernos?</h2>
       <Slider {...settings}>
         {data.map((card) => {
           return (
-            <CarouselCard title={card.title} img={card.img} description={card.description}/>
+            <CarouselCard key={card.title} title={card.title} img={card.img} description={card.description}/>
+            
           )
         })}
       </Slider>
-    </div>
+    </section>
   );
 }

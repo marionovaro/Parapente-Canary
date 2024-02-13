@@ -1,5 +1,5 @@
 import "./App.css"
-import { BuyButton, Carousel, Flight, GridReasons, LandingPage } from "./components"
+import { BuyButton, Carousel, CloudSeparator, Flight, LandingPage, Testimonial } from "./components"
 
 const App = () => {
   return (
@@ -7,7 +7,12 @@ const App = () => {
       <LandingPage/>
       <Flight/>
       <BuyButton/>
-      <Carousel/>
+      <CloudSeparator position="start"/>
+      <div id="full-width-slider-section">
+        <Carousel/>
+      </div>
+      <CloudSeparator position="end"/>
+      <Testimonial/>
     </div>
   )
 }

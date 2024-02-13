@@ -1,0 +1,25 @@
+.single-testimonial{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+  width: 25%;
+  border: 2px solid #FE981E;
+  padding: 8px;
+  border-radius: 60px;
+
+
+  .single-testimonial-image{
+    width: 4vw;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .single-testimonial-comment{
+    font-weight: 100;
+    font-size: 20px;
+  }
+
+}

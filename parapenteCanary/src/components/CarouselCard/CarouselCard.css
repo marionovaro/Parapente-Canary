@@ -4,10 +4,20 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  border: 1px solid #FE981E;
+  border: 2.5px solid #FE981E;
   border-radius: 20px;
-  gap: 0.5rem;
-  /* width: 25vw; */
+  gap: 1.75rem;
+  height: 45vh;
+  color: #151515;
+
+  .carousel-card-image{
+    width: 35%;
+  }
+  
+  .carousel-card-title{
+    font-weight: 100;
+    font-size: 1.5vw;
+  }
 
   .carousel-card-description{
     text-align: center;

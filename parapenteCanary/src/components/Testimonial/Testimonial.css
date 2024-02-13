@@ -7,6 +7,12 @@
   #testimonial-section-title{
     font-weight: 100;
     font-size: 2.5vw;
+    margin-bottom: 1vh;
+
+    span#opinan-testimonial-title{
+      font-style: italic;
+      color: rgb(254, 152, 30);
+    }
   }
 }
 

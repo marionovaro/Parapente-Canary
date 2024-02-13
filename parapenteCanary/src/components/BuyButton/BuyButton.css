@@ -1,3 +1,56 @@
+button.vuela-con-nosotros {
+  font-size: 3vw;
+  color: #FE981E;
+  font-family: "Onest";
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+  margin-bottom: 3vw;
+  position: relative;
+}
+
+button.vuela-con-nosotros:focus-visible{
+  animation-name: upwards;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+}
+
+@keyframes upwards {
+  from {top: 200px}
+  to {top: 0px}
+}
+
+button.vuela-con-nosotros:focus,
+button.vuela-con-nosotros:hover {
+  color: #FE981E;
+}
+
+button.vuela-con-nosotros:focus:after,
+button.vuela-con-nosotros:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+button.vuela-con-nosotros:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
 /*! ----------------------------------------------------------------------------------------------*/
 
 /* button.learn-more {
@@ -202,44 +255,3 @@
 } */
 
 /*! ----------------------------------------------------------------------------------------------*/
-
-button {
-  font-size: 2.5vw;
-  color: #FE981E;
-  font-family: "Onest";
-  font-weight: 800;
-  cursor: pointer;
-  position: relative;
-  border: none;
-  background: none;
-  text-transform: uppercase;
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition-duration: 400ms;
-  transition-property: color;
-  margin-bottom: 3vw;
-}
-
-button:focus,
-button:hover {
-  color: #FE981E;
-}
-
-button:focus:after,
-button:hover:after {
-  width: 100%;
-  left: 0%;
-}
-
-button:after {
-  content: "";
-  pointer-events: none;
-  bottom: -2px;
-  left: 50%;
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background-color: #fff;
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition-duration: 400ms;
-  transition-property: width, left;
-}

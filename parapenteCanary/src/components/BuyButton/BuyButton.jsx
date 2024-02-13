@@ -16,7 +16,7 @@ export const BuyButton = () => {
     // </button>
 
 
-    <button>
+    <button className="vuela-con-nosotros">
       VUELA CON NOSOTROS!
     </button>
 

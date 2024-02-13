@@ -5,7 +5,8 @@ import { TestimonialCard } from "../index"
 export const Testimonial = () => {
 
   return (
-    <section id="testimonal-section">
+    <section id="testimonial-section">
+      <h1 id="testimonial-section-title">¿Qué opinan nuestros clientes?</h1>
       <div id="testimonial-wrapper">
         {testimonialData.map((client) => {
           return (

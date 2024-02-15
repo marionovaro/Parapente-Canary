@@ -6,8 +6,8 @@ const App = () => {
     <div id="app-container">
       <LandingPage/>
       <Flight/>
-      <BuyButton/>
       <CloudSeparator position="start"/>
+      <BuyButton/>
       <div id="full-width-slider-section">
         <Carousel/>
       </div>

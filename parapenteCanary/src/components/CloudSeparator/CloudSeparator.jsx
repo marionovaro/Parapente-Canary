@@ -3,7 +3,6 @@ import "./CloudSeparator.css"
 export const CloudSeparator = ({position}) => {
 
   return (
-    <>
       <svg id="clouds" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none" style={{transform: position == "end" ? "rotate(180deg)" : "none"}}>
         <path d="M-5 100 Q 0 20 5 100 Z
             M0 100 Q 5 0 10 100
@@ -27,6 +26,5 @@ export const CloudSeparator = ({position}) => {
             M90 100 Q 95 25 100 100
             M95 100 Q 100 15 105 100 Z" ></path>
       </svg>
-    </>
   )
 }

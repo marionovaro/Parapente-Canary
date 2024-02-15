@@ -5,6 +5,7 @@ button.vuela-con-nosotros {
   font-weight: 800;
   cursor: pointer;
   position: relative;
+  z-index: 500;
   border: none;
   background: none;
   text-transform: uppercase;
@@ -15,9 +16,9 @@ button.vuela-con-nosotros {
   position: relative;
 }
 
-button.vuela-con-nosotros:focus-visible{
+button.main-button-animation{
   animation-name: upwards;
-  animation-duration: 2s;
+  animation-duration: 5s;
   animation-timing-function: ease;
 }
 

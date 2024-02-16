@@ -12,8 +12,6 @@ export const Carousel = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // centerMode: "true",
-    // centerPadding: "60px"
   };
   return (
     <section className="slider-container">

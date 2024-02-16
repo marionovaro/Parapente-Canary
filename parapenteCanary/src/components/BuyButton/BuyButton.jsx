@@ -1,8 +1,9 @@
 import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import "./BuyButton.css"
 
 export const BuyButton = () => {
-
+  const navigate = useNavigate()
   useEffect(() => {
     console.log(document.querySelector(".vuela-con-nosotros"))
   
@@ -26,7 +27,7 @@ export const BuyButton = () => {
 
   return (
     <nav id="main-button-wrapper">
-      <button className="vuela-con-nosotros">
+      <button className="vuela-con-nosotros" onClick={() =>navigate("/compra")}>
         VUELA CON NOSOTROS!
       </button>
     </nav>

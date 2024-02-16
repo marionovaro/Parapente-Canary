@@ -1,20 +1,16 @@
+import { Outlet } from "react-router-dom"
 import "./App.css"
-import { BuyButton, Carousel, CloudSeparator, FAQ, Flight, LandingPage, Testimonial } from "./components"
+import { Footer, Header } from "./components"
 
 const App = () => {
   return (
-    <div id="app-container">
-      <LandingPage/>
-      <Flight/>
-      <CloudSeparator position="start"/>
-      <BuyButton/>
-      <div id="full-width-slider-section">
-        <Carousel/>
-      </div>
-      <CloudSeparator position="end"/>
-      <Testimonial/>
-      <FAQ/>
-    </div>
+    <>
+      <Header/>
+      <main id="app-container">
+        <Outlet/>
+      </main>
+      <Footer/>
+    </>
   )
 }
 

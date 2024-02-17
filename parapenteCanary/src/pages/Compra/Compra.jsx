@@ -9,27 +9,18 @@ const stripePromise = loadStripe("pk_test_51OkONdKjqtTHurvUtex6Vr0Mm4xmEdLpzqZjL
 
 export const Compra = () => {
 
-  // (async () => {
-  //   const response = await fetch("/secret");
-  //   const { client_secret: clientSecret } = await response.json();
-  // })
-
-  // const options = {
-  //   clientSecret: clientSecret
-  // }
+  (async () => {
+    const response = await fetch("/secret");
+    const { client_secret: clientSecret } = await response.json();
+  })
 
   const options = {
-    mode: 'payment',
-    amount: 1099,
-    currency: 'usd',
-    // Fully customizable with appearance API.
-    // appearance: {/*...*/},
-  };
-
+    clientSecret: clientSecret
+  }
   return (
     <div id="shop-page">
     {/* <h1>Hola</h1> */}
-    <Elements stripe={stripePromise}>
+    <Elements stripe={stripePromise} options={options}>
       <div className="payment-card-wrapper">
         <CheckOutForm/>
       </div>

@@ -8,7 +8,9 @@ import "./Compra.css"
 const stripePromise = loadStripe("pk_test_51OkONdKjqtTHurvUtex6Vr0Mm4xmEdLpzqZjL5OKUfgdE79YbASXP7dQl9F65QOfDIeVlhScU3OEexYWkMvS2IuG00aoNBt41J")
 
 export const Compra = () => {
-
+  // const options = {
+  //   clientSecret: paymentIntent.client_secret
+  // }
   return (
     <div id="shop-page">
     {/* <h1>Hola</h1> */}

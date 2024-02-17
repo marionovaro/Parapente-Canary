@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
+import { CardElement, useStripe, useElements, PaymentElement } from "@stripe/react-stripe-js"
 
 import { useState } from "react"
 import { ThreeDots } from 'react-loader-spinner'
@@ -47,6 +47,7 @@ export const CheckOutForm = () => {
       />
       {/* <h3>150€</h3> */}
       <CardElement/>
+      {/* <PaymentElement/> */}
       <button disabled={!stripe}>
         {loading ? (<div id="loading-button">
         <ThreeDots

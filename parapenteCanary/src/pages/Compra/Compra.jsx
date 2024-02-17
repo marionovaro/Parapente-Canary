@@ -8,13 +8,19 @@ import "./Compra.css"
 const stripePromise = loadStripe("pk_test_51OkONdKjqtTHurvUtex6Vr0Mm4xmEdLpzqZjL5OKUfgdE79YbASXP7dQl9F65QOfDIeVlhScU3OEexYWkMvS2IuG00aoNBt41J")
 
 export const Compra = () => {
-  // const options = {
-  //   clientSecret: paymentIntent.client_secret
-  // }
+
+  (async () => {
+    const response = await fetch("/secret");
+    const { client_secret: clientSecret } = await response.json();
+  })
+
+  const options = {
+    clientSecret: clientSecret
+  }
   return (
     <div id="shop-page">
     {/* <h1>Hola</h1> */}
-    <Elements stripe={stripePromise}>
+    <Elements stripe={stripePromise} options={options}>
       <div className="payment-card-wrapper">
         <CheckOutForm/>
       </div>

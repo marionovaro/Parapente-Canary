@@ -46,8 +46,8 @@ export const CheckOutForm = () => {
         className="payment-card-image"
       />
       {/* <h3>150€</h3> */}
-      <CardElement/>
-      {/* <PaymentElement/> */}
+      {/* <CardElement/> */}
+      <PaymentElement/>
       <button disabled={!stripe}>
         {loading ? (<div id="loading-button">
         <ThreeDots

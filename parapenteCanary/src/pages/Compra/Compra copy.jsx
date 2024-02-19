@@ -13,9 +13,13 @@ export const Compra = () => {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => { //? creamos un intent nada más cargar nuestra pantalla de checkout, y cogemos el clientSecret del backend (lo necesitamos en el front)
-    fetch("http://localhost:5173/create-payment-intent", { //? vamos al endpoint que hemos seteado al hacer el intent en el back
+    fetch("/create-payment-intent", { //? vamos al endpoint que hemos seteado al hacer el intent en el back
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      mode: "no-cors",
+      headers: { 
+        "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': '*',
+     },
       body: JSON.stringify({ items: [{ id: "vuelo-parapente"}]}),
     })
     .then((res) => res.json())

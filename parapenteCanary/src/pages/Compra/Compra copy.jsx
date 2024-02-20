@@ -27,7 +27,11 @@ export const Compra = () => {
 
   //? ------- OPCIONES Y APARIENCIA ---------
   const appearance = {
-    theme: "stripe"
+    theme: "night",
+    // labels: "floating",
+    variables: {
+      // colorPrimary: "#FE981E",
+    }
   }
 
   const options = {

@@ -18,12 +18,10 @@ export const router = createBrowserRouter([
       {
         path: "/compra",
         element: <Compra/>,
-        children: [
-          {
-            path: "/compra/successfulpayment",
-            element: <SuccessfulPayment/>
-          }
-        ]
+      },
+      {
+        path: "/successfulpayment",
+        element: <SuccessfulPayment/>
       }
     ]
   }

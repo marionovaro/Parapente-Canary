@@ -84,7 +84,7 @@ export const CheckOutForm = () => {
           {isLoading ? <div className="spinner" id="spinner"></div> : "Compra Ahora"}
         </span>
       </button>
-      {message && <div id="payment-message">{message}</div>}
+        {message && <div id="payment-message">{message}</div>}
     </form>
   )
 }

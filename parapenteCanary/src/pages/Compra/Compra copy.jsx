@@ -3,7 +3,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
 // import { CheckOutForm } from "../../components"
-CheckOutForm
 import "./Compra2.css"
 import { CheckOutForm } from "../../components/CheckOutForm/CheckOutForm copy";
 

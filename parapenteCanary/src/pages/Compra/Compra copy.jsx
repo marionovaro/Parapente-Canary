@@ -20,9 +20,9 @@ export const Compra = () => {
         "Content-Type": "application/json",
         'Access-Control-Allow-Origin': '*',
      },
-      body: JSON.stringify({ items: [{ id: "vuelo-parapente"}]}),
+      body: JSON.stringify({ items: [{ id: "prod_Pb29cxN32joHwg"}]}),
     })
-    .then((res) => res.json())
+    .then((res) => console.log(res)) 
     .then((data) => setClientSecret(data.clientSecret)); //? seteamos el clientSecret como estado
   }, [])
 

@@ -4,7 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 
 // import { CheckOutForm } from "../../components"
 import "./Compra.css"
-import { CheckOutForm } from "../../components/CheckOutForm/CheckOutForm copy";
+import { CheckOutForm } from "../../components/CheckOutForm/CheckOutForm";
 
 const stripePromise = loadStripe("pk_test_51OkONdKjqtTHurvUtex6Vr0Mm4xmEdLpzqZjL5OKUfgdE79YbASXP7dQl9F65QOfDIeVlhScU3OEexYWkMvS2IuG00aoNBt41J") //? hay que llamar a loadstripe fuera de la función para evitar que se recree el stripe en cada render
 

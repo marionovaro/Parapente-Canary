@@ -1,67 +1,90 @@
-// import axios from "axios"
-// import { CardElement, useStripe, useElements, PaymentElement } from "@stripe/react-stripe-js"
+import React, { useEffect, useState } from "react";
+import {
+  PaymentElement,
+  useStripe,
+  useElements
+} from "@stripe/react-stripe-js";
 
-// import { useState } from "react"
-// import { ThreeDots } from 'react-loader-spinner'
-// import "./CheckOutForm.css"
+export const CheckOutForm = () => {
+  const stripe = useStripe();
+  const elements = useElements();
 
-// export const CheckOutForm = () => {
-//   const stripe = useStripe()
-//   const elements = useElements() //? nos permite acceder a los elementos de stripe
-//   const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); //? lo utilizaremos para deshabilitar botones y estas cosas
 
-//   const handleSubmit = async (e) => {
-//     console.log("submitted")
-//     e.preventDefault(); //? evita que se pueda refrescar la pagina
+  useEffect(() => {
+    if (!stripe) {
+      return;
+    }
 
-//     const {error, paymentMethod} = await stripe.createPaymentMethod({ //? esto puede acabar dando o un error, o un payment method
-//       type: "card",
-//       card: elements.getElement(CardElement) //? de todos los elementos, estamos pillando uno en concreto
-//     })
-//     setLoading(true) //? acabamos de enviar la info y estamos esperando a que se procese, no debemos clickar otra vez
+    const clientSecret = new URLSearchParams(window.location.search).get("payment_intent_client_secret");
 
-//     if (!error) { //? si no hay error (ha ido bien) 
-//       const { id } = paymentMethod //? es un objeto con datos sobre la operacion, entre los cuales esta el id que debemos devolver a stripe para que lo guarde
+    if (!clientSecret) {
+      return;
+    }
 
-//       try {
-//         const { data } = await axios.post(
-//           "http://localhost:3000/api/checkout", 
-//           {
-//             id,
-//             amount: 15000 //? ponemos el precio en centimos
-//           }
-//         );
-//         elements.getElement(CardElement).clear();
-//       } catch (error) {
-//         console.log(error)
-//       }
-//       setLoading(false) //? hemos acabado de cargar por lo tanto lo quitamos
-//     }
-//   }
-//   return (
-//     <form className="payment-card" onSubmit={handleSubmit}>
-//       <img 
-//         src="https://www.parapentevalledebravo.com/templates/yootheme/cache/vuelosparapentevalledebravo-explorer4x3-600-3142bd86.jpeg" 
-//         alt="compra vuelo en parapente" 
-//         className="payment-card-image"
-//       />
-//       {/* <h3>150€</h3> */}
-//       {/* <CardElement/> */}
-//       <PaymentElement/>
-//       <button disabled={!stripe}>
-//         {loading ? (<div id="loading-button">
-//         <ThreeDots
-//           visible={true}
-//           height="50"
-//           width="50"
-//           color="#fff"
-//           radius="9"
-//           ariaLabel="three-dots-loading"
-//           wrapperStyle={{}}
-//           wrapperClass="spinner-buy-button"
-//         />
-//         <h4>Loading</h4></div>) : "Comprar"}
-//       </button>
-//     </form>
-//   )
-// }
+    //? ------- MOSTRAR MENSAJES AL CLIENTE ---------
+    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
+      switch (paymentIntent.status) { //? es una de las claves del objeto paymentIntent, es para saber el estado de la operación
+        case "succeeded":
+          setMessage("Payment succeeded")
+          break;
+
+        case "requires_payment_method":
+          setMessage("Your payment was not successful, please try again.")
+          break;
+
+        case "processing":
+          setMessage("Your payment is processing")
+          break;
+    
+        default:
+          setMessage("Something went wrong")
+          break;
+      }
+    });
+  }, [stripe])
+
+  //? -------- EVENTO AL HACER CLICK ---------
+  const handleSubmit = async (event) => {
+    event.preventDefault(); //? evita que se pueda refrescar la pagina
+
+    if (!stripe || !elements) { //? si stripe aún no ha cargado no se puede mostrar el botón de envío activado
+      return
+    }
+
+    setIsLoading(true) //? está cargando
+
+    const { error } = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        return_url: "http://localhost:5173/successfulpayment"
+      }
+    });
+
+    if (error.type === "card_error" || error.type === "validation_error") { //? aquí solo llegará si hay un error, si no lo hay se enviará al cliente al return_url
+      setMessage(error.message) //? como puedes ver, dentro de error hay claves (type, message...)
+    } else {
+      setMessage("An unexpected error occurred.")
+    }
+
+    setIsLoading(false) //? ya se han hecho todas las tareas al hacer click, ya no estamos cargando
+  };
+
+  //? -------- OPCIONES DE APARIENCIA ---------
+  const paymentElementOptions = {
+    layout: "tabs"
+  }
+
+  return (
+    <form id="payment-form" onSubmit={handleSubmit} >
+      <PaymentElement id="payment-element" options={paymentElementOptions} />
+      <button id="buy-button" disabled={isLoading || !stripe || !elements}>
+        <span id="button-text">
+          {isLoading ? <div className="spinner" id="spinner"></div> : "Compra Ahora"}
+        </span>
+      </button>
+        {message && <div id="payment-message">{message}</div>}
+    </form>
+  )
+}

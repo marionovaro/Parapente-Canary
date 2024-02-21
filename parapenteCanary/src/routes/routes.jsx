@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import App from "../App";
-import { CheckOutForm } from "../components/CheckOutForm/CheckOutForm copy";
-import { MainPage, SuccessfulPayment, Compra } from "../pages";
+import { MainPage, SuccessfulPayment, Compra, Reserva } from "../pages";
 
 
 export const router = createBrowserRouter([
@@ -20,6 +19,10 @@ export const router = createBrowserRouter([
       {
         path: "/successfulpayment",
         element: <SuccessfulPayment/>
+      },
+      {
+        path: "/reserva",
+        element: <Reserva/>
       }
     ]
   }

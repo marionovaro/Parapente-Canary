@@ -2,7 +2,7 @@ import { useState } from "react"
 import "./Reserva.css"
 
 export const Reserva = () => {
-  const [hora, setHora] = useState("")
+  const [hora, setHora] = useState()
 
   return (
     <div id="reserva-page">
@@ -17,9 +17,9 @@ export const Reserva = () => {
         <div className="input-container radio-div">
           Hora de recogida
           <div id="button-radio-container">
-            <button>9AM</button>
-            <button>12AM</button>
-            <button>3PM</button>
+            <button onClick={() => setHora("9")}>9AM</button>
+            <button onClick={() => setHora("12")}>12AM</button>
+            <button onClick={() => setHora("15")}>3PM</button>
           </div>
         </div>
         <div className="input-container">

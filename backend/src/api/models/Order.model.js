@@ -1,8 +1,10 @@
+const validator = require("validator"); //? validamos información
 const mongoose = require("mongoose")
+
 const Schema = mongoose.Schema
 const OrderSchema = new Schema(
   {
-    date: { type: Date, required: true },
+    date: { type: Date, required: false },
     time: { type: Number, required: true },
     email: {
       type: String,

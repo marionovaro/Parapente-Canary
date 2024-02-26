@@ -35,7 +35,8 @@ app.post("/create-payment-intent", async (req, res) => {
 
 //! ----------- CREAMOS LA RUTA -----------
 
-
+const OrderRoutes = require("./src/api/routes/Order.routes");
+app.use("/api/v1/orders/", OrderRoutes);
 
 //! ----------- PONEMOS SERVIDOR A FUNCIONAR -------------
 const PORT = process.env.PORT

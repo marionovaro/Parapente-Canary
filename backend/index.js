@@ -7,6 +7,9 @@ app.use(express.static("public"))
 app.use(express.json())
 app.use(cors({origin: "http://localhost:5173"}))
 
+//! ----------- CONECTAMOS A LA BASE DE DATOS (MONGO DB) --------------
+const { conectarBd } = require("./src/utils/db")
+conectarBd()
 
 const caluclateOrderAmount = (items) => { //? esto lo hacemos para que el precio esté en el backend y así no se pueda modificar
   return 15000 //? en centimos, por eso hay 2 ceros de más
@@ -24,9 +27,6 @@ app.post("/create-payment-intent", async (req, res) => {
     clientSecret: paymentIntent.client_secret, //? client_secret es una clave dentro del objeto que se crea en paymentIntent cuando hacemos un intento
   })
 })
-
-// console.log(res)
-// console.log("soy el dos", paymentIntent)
 
 app.listen(3000, () => {
   console.log("Servidor en el puerto", 3000)

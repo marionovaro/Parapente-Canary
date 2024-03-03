@@ -18,7 +18,11 @@ const deleteOrder = async (req, res, next) => {
   try {
     const { id } = req.params;
     const order = await Order.findByIdAndDelete(id);
-
+    if (order) {
+      return res.status(200).json("Order deleted correctly")
+    } else {
+      return res.status(404).json("Order not found!")
+    }
   } catch (error) {
     return res.status(500).json({
       error: "Error in general operation",

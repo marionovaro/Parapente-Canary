@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const OrderSchema = new Schema(
   {
     date: { type: Date, required: false },
-    time: { type: Number, required: true },
+    time: { type: Number, required: true, enum: [9, 12, 15] },
     email: {
       type: String,
       required: true,

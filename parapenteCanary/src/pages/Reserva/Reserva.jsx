@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom"
 
 import "./Reserva.css"
+import { createOrder } from "../../services/order.service";
 
 export const Reserva = () => {
   const { register, handleSubmit } = useForm()
@@ -11,9 +12,10 @@ export const Reserva = () => {
   const [isSent, setIsSent] = useState()
   const [res, setRes] = useState()
 
-  const formSubmit = () => {
+  const formSubmit = async (formData) => {
+    // console.log(formData)
     setIsSent(true)
-    setRes()
+    setRes(await createOrder(formData))
     setIsSent(false)
   }
 
@@ -73,7 +75,7 @@ export const Reserva = () => {
         <div className="input-container">
           Número de Teléfono
           <input 
-            type="text"
+            type="number"
             { ...register("phoneNumber", {required: true})} 
           />
         </div>
@@ -87,8 +89,8 @@ export const Reserva = () => {
         <div className="input-container">
           Cantidad
           <input 
-            type="text"
-            { ...required("quantity", {required: true})}
+            type="number"
+            { ...register("quantity", {required: true})}
           />
         </div>
         <button>

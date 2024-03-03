@@ -1,6 +1,7 @@
 const Order = require("../models/Order.model")
 
 const createOrder = async (req, res, next) => {
+  console.log(req)
   try {
     await Order.syncIndexes();
     const newOrder = new Order(req.body);

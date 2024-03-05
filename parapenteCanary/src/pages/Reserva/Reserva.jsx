@@ -13,11 +13,16 @@ export const Reserva = () => {
   const [res, setRes] = useState()
 
   const formSubmit = async (formData) => {
-    // console.log(formData)
     setIsSent(true)
     setRes(await createOrder(formData))
     setIsSent(false)
   }
+  
+  useEffect(() => {
+    if (res != undefined) {
+      navigate("/compra")
+    }
+  }, [res])
 
   return (
     <div id="reserva-page">

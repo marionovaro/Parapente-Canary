@@ -27,7 +27,7 @@ export const BuyButton = () => {
 
   return (
     <nav id="main-button-wrapper">
-      <button className="vuela-con-nosotros" onClick={() =>navigate("/compra")}>
+      <button className="vuela-con-nosotros" onClick={() =>navigate("/reserva")}>
         VUELA CON NOSOTROS!
       </button>
     </nav>

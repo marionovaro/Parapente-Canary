@@ -8,7 +8,7 @@ export const Header = () => {
       <div id="logo-container" onClick={() => navigate("/")}>Logo</div>
       <nav id="header-nav">
         <div>Inicio</div>
-        <div onClick={() => navigate("/compra")}>Reservas</div>
+        <div onClick={() => navigate("/reserva")}>Reservas</div>
         <div>Regalo</div>
         <div>Galería</div>
         <div>Legal</div>

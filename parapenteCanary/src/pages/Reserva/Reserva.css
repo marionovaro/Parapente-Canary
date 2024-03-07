@@ -58,18 +58,6 @@
           }
         }
 
-        .date-picker{
-
-          input[type="date"]{
-
-          }
-
-          ::-webkit-calendar-picker-indicator{
-            /* background-color: red; */
-          }
-
-        }
-
         .quantity-input{
           display: flex;
           justify-content: center;

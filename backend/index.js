@@ -1,5 +1,5 @@
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY
-const stripe = require("stripe")(STRIPE_SECRET_KEY) //? requerimos stripe y añandimos clave secreta que nos da en el dashboard (la tenemos guardada en el .env por seguridad)
+const stripe = require("stripe")("sk_test_51OkONdKjqtTHurvUcIWYNJZN68uyB6C7BYOgjzYnyqphOXFgz9bqsNAkOENKJTELiRJSkB9dQbahIc3N8vSosUTg00vsbTfdg6") //? requerimos stripe y añandimos clave secreta que nos da en el dashboard (la tenemos guardada en el .env por seguridad)
 const express = require("express")
 const cors = require("cors")
 

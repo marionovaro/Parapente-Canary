@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom"
+import { DatePicker, CounterInput } from "react-rainbow-components"
 
 import "./Reserva.css"
 import { createOrder } from "../../services/order.service";
@@ -11,6 +12,8 @@ export const Reserva = () => {
 
   const [isSent, setIsSent] = useState()
   const [res, setRes] = useState()
+  const [date, setDate] = useState(null)
+  const [counter, setCounter] = useState()
 
   const formSubmit = async (formData) => {
     setIsSent(true)
@@ -24,6 +27,14 @@ export const Reserva = () => {
     }
   }, [res])
 
+  const onChangeDate = () => {
+    setDate(date)
+  }
+
+  const containerStyles = {
+    maxWidth: 220,
+  };
+
   return (
     <div id="reserva-page">
       <h1>¡Haz tu reserva!</h1>
@@ -33,11 +44,17 @@ export const Reserva = () => {
         </div>
         <div id="form-container-reserva">
           <form action="submit" id="client-info-form" onSubmit={handleSubmit(formSubmit)}>
-            <div className="input-container">
-              Fecha
-              <input
+            <div className="input-container date-picker">
+              Fecha (48h antelación)
+              {/* <input
                 type="date"            
                 { ...register("date", {required: true})}
+              /> */}
+              <DatePicker
+                id="datePicker-1"
+                value={date}
+                onChange={onChangeDate}
+                formatStyle="large"
               />
             </div>
             <div className="input-container radio-div">
@@ -96,9 +113,21 @@ export const Reserva = () => {
             </div>
             <div className="quantity-input">
               Cantidad
-              <input 
+              {/* <input 
                 type="number"
                 { ...register("quantity", {required: true})}
+              /> */}
+              <CounterInput
+                id="input-component-1"
+                placeholder="Cantidad"
+                style={containerStyles}
+                className="rainbow-m-vertical_x-large rainbow-p-horizontal_medium rainbow-m_auto"
+                labelAlignment="center"
+                value={counter}
+                onChange={setCounter}
+                min={1}
+                max={20}
+                variant="shaded"
               />
             </div>
             <button>

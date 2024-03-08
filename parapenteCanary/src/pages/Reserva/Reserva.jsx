@@ -100,7 +100,7 @@ export const Reserva = () => {
                 type="number"
                 { ...register("quantity", {required: true})}
               /> */}
-              <CounterInput
+              {/* <CounterInput
                 id="input-component-1"
                 placeholder="Cantidad"
                 className="rainbow-m-vertical_x-large rainbow-p-horizontal_medium rainbow-m_auto"
@@ -111,7 +111,7 @@ export const Reserva = () => {
                 max={20}
                 variant="shaded"
                 { ...register("quantity", {required: true})}
-              />
+              /> */}
             </div>
             <button>
               Ir al pago

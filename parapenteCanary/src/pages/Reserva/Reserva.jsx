@@ -5,6 +5,7 @@ import { DatePicker, CounterInput } from "react-rainbow-components"
 
 import "./Reserva.css"
 import { createOrder } from "../../services/order.service";
+import { CalendarPicker } from "../../components";
 
 export const Reserva = () => {
   const { register, handleSubmit } = useForm()
@@ -27,13 +28,7 @@ export const Reserva = () => {
     }
   }, [res])
 
-  const onChangeDate = () => {
-    setDate(date)
-  }
 
-  const containerStyles = {
-    maxWidth: 220,
-  };
 
   return (
     <div id="reserva-page">
@@ -44,19 +39,7 @@ export const Reserva = () => {
         </div>
         <div id="form-container-reserva">
           <form action="submit" id="client-info-form" onSubmit={handleSubmit(formSubmit)}>
-            <div className="input-container date-picker">
-              Fecha (48h antelación)
-              {/* <input
-                type="date"            
-                { ...register("date", {required: true})}
-              /> */}
-              <DatePicker
-                id="datePicker-1"
-                value={date}
-                onChange={onChangeDate}
-                formatStyle="large"
-              />
-            </div>
+            <CalendarPicker/>
             <div className="input-container radio-div">
               Hora de recogida
               <div id="button-radio-container">
@@ -120,7 +103,6 @@ export const Reserva = () => {
               <CounterInput
                 id="input-component-1"
                 placeholder="Cantidad"
-                style={containerStyles}
                 className="rainbow-m-vertical_x-large rainbow-p-horizontal_medium rainbow-m_auto"
                 labelAlignment="center"
                 value={counter}
@@ -128,6 +110,7 @@ export const Reserva = () => {
                 min={1}
                 max={20}
                 variant="shaded"
+                { ...register("quantity", {required: true})}
               />
             </div>
             <button>
